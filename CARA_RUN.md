@@ -1,149 +1,155 @@
-# Cara Menjalankan Project JokiAPK
+# Cara Menjalankan Website JokiAPK.id
 
-## Step-by-Step Guide
+Website ini adalah static website (HTML/CSS/JavaScript murni), jadi sangat mudah dijalankan!
 
-### 1. Pastikan Dependencies Terinstall
+## 🚀 Cara 1: Buka Langsung (Paling Mudah)
+
+1. Buka File Explorer (Windows Explorer)
+2. Navigasi ke folder `e:\jokiapk.id`
+3. Double-click file `index.html`
+4. Website akan terbuka di browser default Anda
+
+**Catatan:** Beberapa fitur mungkin tidak berfungsi sempurna jika dibuka langsung (terutama JavaScript), jadi lebih baik gunakan local server.
+
+---
+
+## 🌐 Cara 2: Menggunakan Local Server (Recommended)
+
+### Opsi A: Menggunakan Python (Paling Mudah)
+
+**Windows:**
+```powershell
+# Buka PowerShell di folder project
+cd e:\jokiapk.id
+
+# Jalankan server
+python -m http.server 8000
+```
+
+**Jika Python belum terinstall:**
+- Download dari https://www.python.org/downloads/
+- Atau gunakan opsi B (PHP)
+
+**Mac/Linux:**
+```bash
+cd /path/to/jokiapk.id
+python3 -m http.server 8000
+```
+
+Kemudian buka browser dan akses: **http://localhost:8000**
+
+---
+
+### Opsi B: Menggunakan PHP
+
+**Windows:**
+```powershell
+# Buka PowerShell di folder project
+cd e:\jokiapk.id
+
+# Jalankan server
+php -S localhost:8000
+```
+
+**Mac/Linux:**
+```bash
+cd /path/to/jokiapk.id
+php -S localhost:8000
+```
+
+Kemudian buka browser dan akses: **http://localhost:8000**
+
+---
+
+### Opsi C: Menggunakan Node.js (http-server)
+
+Jika sudah install Node.js:
 
 ```bash
-# Install Composer dependencies
-composer install --ignore-platform-req=ext-fileinfo
+# Install http-server global
+npm install -g http-server
 
-# Install NPM dependencies
-npm install
+# Jalankan di folder project
+cd e:\jokiapk.id
+http-server -p 8000
 ```
 
-### 2. Setup Environment File
+Kemudian buka browser dan akses: **http://localhost:8000**
 
-```bash
-# Copy .env.example ke .env (jika belum ada)
-copy .env.example .env
+---
 
-# Atau di PowerShell:
-Copy-Item .env.example .env
-```
+## 📝 Langkah-langkah Detail (Windows)
 
-### 3. Generate Application Key
+1. **Buka PowerShell:**
+   - Tekan `Windows + X`
+   - Pilih "Windows PowerShell" atau "Terminal"
 
-```bash
-# Generate APP_KEY
-php artisan key:generate
-```
+2. **Navigasi ke folder project:**
+   ```powershell
+   cd e:\jokiapk.id
+   ```
 
-**Jika error dengan artisan, edit file `.env` secara manual:**
-- Buka file `.env`
-- Pastikan ada baris: `APP_KEY=`
-- Generate key manual atau gunakan: `APP_KEY=base64:YOUR_RANDOM_32_CHAR_STRING`
+3. **Jalankan server (pilih salah satu):**
+   ```powershell
+   # Opsi 1: Python
+   python -m http.server 8000
+   
+   # Opsi 2: PHP
+   php -S localhost:8000
+   ```
 
-### 4. Build Assets
+4. **Buka browser:**
+   - Buka browser (Chrome, Firefox, Edge, dll)
+   - Ketik di address bar: `http://localhost:8000`
+   - Tekan Enter
 
-```bash
-# Build assets untuk production
-npm run build
-```
+5. **Untuk menghentikan server:**
+   - Tekan `Ctrl + C` di PowerShell
 
-### 5. Jalankan Server
+---
 
-**Opsi 1: Menggunakan PHP Built-in Server (Paling Mudah)**
-```bash
-php -S localhost:8000 -t public
-```
+## ✅ Checklist Sebelum Menjalankan
 
-**Opsi 2: Menggunakan Laravel Artisan (jika tidak ada error)**
-```bash
-php artisan serve
-```
+- [ ] Pastikan file `index.html` ada di folder
+- [ ] Pastikan folder `css/`, `js/`, dan `images/` ada
+- [ ] Pastikan koneksi internet aktif (untuk load Tailwind CSS dari CDN)
 
-**Opsi 3: Menggunakan XAMPP/WAMP**
-- Copy folder project ke `htdocs` atau `www`
-- Arahkan ke folder `public`
-- Akses: `http://localhost/jokiapk.id/public`
+---
 
-### 6. Akses Website
+## 🐛 Troubleshooting
 
-Buka browser dan kunjungi:
-- **http://localhost:8000**
+### Error: "python is not recognized"
+- Install Python dari https://www.python.org/downloads/
+- Atau gunakan PHP: `php -S localhost:8000`
 
-## Troubleshooting
+### Error: "php is not recognized"
+- Install PHP atau gunakan Python
+- Atau buka langsung `index.html` di browser
 
-### Error: "Target class [files] does not exist"
+### Website tidak muncul gambar
+- Pastikan folder `images/` ada dan berisi semua file gambar
+- Cek path gambar di HTML (harus `images/logo.png`, bukan `public/images/logo.png`)
 
-**Solusi:**
-1. Pastikan file `.env` sudah ada
-2. Pastikan `CACHE_STORE=array` di file `.env`
-3. Pastikan `SESSION_DRIVER=file` di file `.env`
+### JavaScript tidak berfungsi
+- Pastikan menggunakan local server (bukan buka langsung)
+- Buka Developer Tools (F12) dan cek Console untuk error
 
-### Error: "APP_KEY is not set"
+---
 
-**Solusi:**
-1. Buka file `.env`
-2. Tambahkan atau edit: `APP_KEY=base64:YOUR_KEY_HERE`
-3. Atau jalankan: `php artisan key:generate` (jika bisa)
+## 🌍 Deploy ke Internet
 
-### Error: "Class not found"
+Setelah website berjalan dengan baik di local, Anda bisa deploy ke:
 
-**Solusi:**
-```bash
-# Clear cache
-php artisan config:clear
-php artisan cache:clear
-php artisan route:clear
-php artisan view:clear
-```
+- **GitHub Pages** (Gratis)
+- **Netlify** (Gratis)
+- **Vercel** (Gratis)
+- **Cloudflare Pages** (Gratis)
 
-### Assets tidak muncul
+Lihat `README.md` untuk detail deploy.
 
-**Solusi:**
-```bash
-# Rebuild assets
-npm run build
+---
 
-# Atau untuk development dengan hot reload
-npm run dev
-```
+## 📞 Butuh Bantuan?
 
-## File .env Minimal
-
-Pastikan file `.env` memiliki minimal:
-
-```env
-APP_NAME="JokiAPK"
-APP_ENV=local
-APP_KEY=base64:YOUR_KEY_HERE
-APP_DEBUG=true
-APP_URL=http://localhost:8000
-
-CACHE_STORE=array
-SESSION_DRIVER=file
-FILESYSTEM_DISK=local
-```
-
-## Catatan Penting
-
-1. **Port 8000 sudah digunakan?**
-   - Ganti port: `php -S localhost:8001 -t public`
-
-2. **PHP extension fileinfo tidak aktif?**
-   - Edit `php.ini`
-   - Uncomment: `extension=fileinfo`
-   - Restart web server
-
-3. **Database tidak diperlukan untuk website ini**
-   - Website ini adalah static company profile
-   - Tidak perlu setup database
-
-## Quick Start (Paling Cepat)
-
-```bash
-# 1. Install dependencies
-composer install --ignore-platform-req=ext-fileinfo
-npm install
-
-# 2. Build assets
-npm run build
-
-# 3. Jalankan server
-php -S localhost:8000 -t public
-```
-
-Buka browser: **http://localhost:8000**
-
+- Email: aryahidayat1111@gmail.com
+- WhatsApp: +62 815 2486 6651

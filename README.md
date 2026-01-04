@@ -1,99 +1,87 @@
-# JokiAPK - Company Profile Website
+# JokiAPK.id - Static Website
 
-Company profile website untuk layanan joki web dan mobile development dengan tema ungu, hitam, dan dark grey.
+Website portfolio JokiAPK.id versi HTML/CSS/JavaScript murni (tanpa PHP/Laravel).
 
-## 🚀 Quick Start
+## Struktur Project
 
-### Cara Paling Mudah:
-1. **Double-click `START.bat`** (Windows)
-2. Buka browser: **http://localhost:8000**
+```
+jokiapk.id/
+├── index.html              # Halaman Home
+├── about.html              # Halaman About
+├── services.html           # Halaman Services
+├── portfolio.html          # Halaman Portfolio
+├── contact.html            # Halaman Contact
+├── company-profile.html    # Halaman Company Profile Projects
+├── mobile-apps.html        # Halaman Mobile Apps Projects
+├── css/
+│   └── style.css          # Custom CSS
+├── js/
+│   └── main.js            # JavaScript untuk interaktivitas
+├── images/                # Folder gambar
+│   ├── logo.png
+│   ├── dev.jpeg
+│   ├── company.png
+│   ├── company-profile-2.png
+│   ├── companytum.png
+│   ├── mobileapps.png
+│   └── mobiletum.png
+├── favicon.ico            # Favicon
+├── robots.txt             # Robots.txt
+└── README.md              # File ini
 
-Selesai! Website langsung jalan! 🎉
-
-## 📋 Setup Lengkap (Pertama Kali)
-
-Jika belum pernah setup, double-click:
-- **`setup.bat`** - Setup otomatis semua + jalankan server
-
-Atau manual:
-
-```bash
-# 1. Install dependencies
-composer install --ignore-platform-req=ext-fileinfo
-npm install
-
-# 2. Setup environment
-copy .env.example .env
-php generate-key.php
-
-# 3. Build assets
-npm run build
-
-# 4. Jalankan server
-php -S localhost:8000 -t public
 ```
 
-## 📁 File yang Tersedia
+## Cara Menjalankan
 
-- **`START.bat`** / **`START.ps1`** - Langsung jalankan server (paling mudah)
-- **`setup.bat`** / **`setup.ps1`** - Setup lengkap + jalankan server
-- **`generate-key.php`** - Generate APP_KEY otomatis
+### Opsi 1: Buka Langsung
+Buka file `index.html` langsung di browser.
 
-## 🌐 Akses Website
+### Opsi 2: Local Server (Recommended)
 
-Setelah server berjalan:
-- **http://localhost:8000**
-
-## ✨ Fitur
-
-- ✅ Responsive design (mobile, tablet, desktop)
-- ✅ Sticky footer yang mengikuti konten
-- ✅ Tema ungu, hitam, dark grey
-- ✅ Design clean dan simple
-- ✅ Navigation dengan mobile menu
-- ✅ Halaman Home, About, Services, Portfolio, Contact
-
-## 🛠️ Teknologi
-
-- Laravel 10
-- Tailwind CSS
-- Alpine.js
-- Vite
-
-## 📝 Halaman
-
-- `/` - Homepage dengan hero section, services, dan CTA
-- `/about` - Tentang perusahaan, visi, misi, dan values
-- `/services` - Detail layanan yang ditawarkan
-- `/portfolio` - Showcase project yang telah dikerjakan
-- `/contact` - Form kontak dan informasi kontak
-
-## ⚙️ Konfigurasi
-
-File `.env` sudah dikonfigurasi dengan:
-- `SESSION_DRIVER=array` (tidak perlu database)
-- `CACHE_STORE=array` (tidak perlu database)
-- `FILESYSTEM_DISK=local`
-
-## 🔧 Troubleshooting
-
-### Port 8000 sudah digunakan?
-Edit `START.bat`, ganti `8000` dengan port lain (misalnya `8001`)
-
-### Assets tidak muncul?
-```bash
-npm run build
+**Windows (PowerShell):**
+```powershell
+python -m http.server 8000
+# atau
+php -S localhost:8000
 ```
 
-### Error "APP_KEY is not set"?
+**Mac/Linux:**
 ```bash
-php generate-key.php
+python3 -m http.server 8000
+# atau
+php -S localhost:8000
 ```
 
-## 📚 Dokumentasi Lengkap
+Kemudian buka: `http://localhost:8000`
 
-Lihat `README_SETUP.md` untuk dokumentasi setup lengkap.
+## Deploy ke Hosting
 
-## 📄 License
+Website ini dapat di-deploy ke berbagai platform static hosting:
 
-MIT
+- **Vercel** (Recommended): Lihat `DEPLOY_VERCEL.md` untuk panduan lengkap
+- **GitHub Pages**: Push ke repository dan aktifkan GitHub Pages
+- **Netlify**: Drag & drop folder atau connect ke Git
+- **Cloudflare Pages**: Upload folder atau connect ke Git
+
+**Panduan Deploy Vercel:** Lihat file `DEPLOY_VERCEL.md` untuk instruksi detail.
+
+## Fitur
+
+- ✅ Responsive Design
+- ✅ Header fade effect saat scroll
+- ✅ Mobile Menu Toggle
+- ✅ Active Navigation State
+- ✅ Tailwind CSS via CDN
+- ✅ Vanilla JavaScript
+
+## Teknologi
+
+- HTML5
+- Tailwind CSS (via CDN)
+- Vanilla JavaScript
+- Custom CSS
+
+## Support
+
+- Email: aryahidayat1111@gmail.com
+- WhatsApp: +62 815 2486 6651

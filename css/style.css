@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Tailwind CSS via CDN will be used, but custom styles here */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000;
+    color: #9CA3AF;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1F2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6B46C1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7C3AED;
+}
+
+/* Utility classes */
+[x-cloak] {
+    display: none !important;
+}
+
+/* Header fade animation */
+.header-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.header-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
